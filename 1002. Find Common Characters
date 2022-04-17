@@ -1,0 +1,7 @@
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        counter_words = [Counter(word) for word in words]
+        result = []
+        for word in counter_words[0]:
+            result.extend([word] * min(counter_word.get(word, 0) for counter_word in counter_words))
+        return result
